@@ -14,12 +14,11 @@ public class GamePanel extends JPanel implements ActionListener {
         this.setBackground(color);
         this.setFocusable(true);
         this.addKeyListener(new MyKeyAdapter());
-        timer = new Timer(10, this);
-        timer.start();
-        startGame();
     }
 
     public void startGame() {
+        timer = new Timer(10, this);
+        timer.start();
         isRunning = true;
     }
 
