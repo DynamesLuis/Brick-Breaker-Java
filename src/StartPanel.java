@@ -26,6 +26,7 @@ public class StartPanel extends JPanel {
             cardLayout.show(container, "game");
             if (gamePanel != null) {
                 gamePanel.startGame();
+                gamePanel.requestFocusInWindow();
             }
         });
         this.add(Box.createVerticalGlue());
