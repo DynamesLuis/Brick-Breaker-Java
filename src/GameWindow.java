@@ -1,7 +1,5 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class GameWindow extends JFrame {
     static int widthWindow = 600;
@@ -12,6 +10,7 @@ public class GameWindow extends JFrame {
         CardLayout cardLayout = (CardLayout) mainPanel.getLayout();
         GamePanel gamePanel = new GamePanel();
         HeaderPanel headerPanel = new HeaderPanel(widthWindow, 30);
+        JPanel mainGamePanel = new JPanel();
 
         //first view
         JPanel startPanel = new StartPanel(cardLayout, mainPanel, gamePanel);
@@ -19,7 +18,6 @@ public class GameWindow extends JFrame {
         startPanel.setVisible(true);
         this.add(startPanel);
         //second view
-        JPanel mainGamePanel = new JPanel();
         mainGamePanel.setLayout(new BorderLayout());
         mainGamePanel.add(headerPanel);
         mainGamePanel.add(gamePanel);

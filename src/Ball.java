@@ -30,7 +30,7 @@ public class Ball {
         y += yVelocity;
     }
 
-    public void checkCollisions() {
+    public void checkCollisions(GridBrick gridBricks) {
         // bounce horizontal
         if (x <= 0 || x + GameConfig.ballSize >= GameWindow.widthWindow) {
             xVelocity = -xVelocity;
@@ -48,9 +48,29 @@ public class Ball {
             GamePanel.isRunning = false;
         }
 
-        //checks if ball touche paddle
+        //checks if ball touched paddle
         if(getBounds().intersects(Paddle.getBounds())) {
             yVelocity = -yVelocity;
+        }
+
+        //check if ball touched a brick
+        for (int row = 0; row < gridBricks.bricks.length; row++) {
+            for (int col = 0; col < gridBricks.bricks[row].length; col++) {
+                Brick brick = gridBricks.bricks[row][col];
+                if (brick != null && brick.getIsActive()) {
+                    Rectangle brickBounds = brick.getBounds();
+                    if (getBounds().intersects(brickBounds)) {
+                        brick.setInactive();
+                        Rectangle intersection = getBounds().intersection(brickBounds);
+                        if (intersection.width >= intersection.height) {
+                            yVelocity = -yVelocity; // más alto que ancho ⇒ colisión vertical
+                        } else {
+                            xVelocity = -xVelocity; // más ancho que alto ⇒ colisión lateral
+                        }
+                    }
+                }
+
+            }
         }
 
 

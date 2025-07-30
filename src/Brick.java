@@ -10,14 +10,29 @@ public class Brick {
                        new Color(247, 74,  94 ) };
     int x;
     int y;
+    boolean isActive;
 
     public Brick(int x, int y) {
         this.x = x;
         this.y = y;
+        this.isActive = true;
     }
 
     public void draw(int colorIndex, Graphics g) {
+        if (!this.isActive) return;
         g.setColor(colors[colorIndex]);
         g.fillRoundRect(this.x, this.y, GameConfig.widthBrick, GameConfig.heightBrick, GameConfig.roundBrick, GameConfig.roundBrick);
+    }
+
+    public Rectangle getBounds() {
+        return new Rectangle(x, y, GameConfig.widthBrick, GameConfig.heightBrick);
+    }
+
+    public boolean getIsActive() {
+        return this.isActive;
+    }
+
+    public void setInactive() {
+        this.isActive = false;
     }
 }

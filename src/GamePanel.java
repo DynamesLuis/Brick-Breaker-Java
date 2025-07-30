@@ -45,7 +45,7 @@ public class GamePanel extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent actionEvent) {
         if (isRunning) {
             ball.move();
-            ball.checkCollisions();
+            ball.checkCollisions(gridBrick);
         }
         repaint();
     }
