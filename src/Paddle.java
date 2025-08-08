@@ -13,7 +13,7 @@ public class Paddle {
 
     public Paddle() {
         x = (GameWindow.widthWindow - GameConfig.widthPaddle) / 2;
-        y = GameWindow.heightWindow - 70;
+        y = GameWindow.heightWindow - 100;
         width = GameConfig.widthPaddle;
         height = GameConfig.heightPaddle;
         this.roundX = GameConfig.roundPaddle;

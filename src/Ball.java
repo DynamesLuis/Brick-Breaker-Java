@@ -62,6 +62,7 @@ public class Ball {
                     if (getBounds().intersects(brickBounds)) {
                         brick.setInactive();
                         Rectangle intersection = getBounds().intersection(brickBounds);
+                        HeaderPanel.updateScore();
                         if (intersection.width >= intersection.height) {
                             yVelocity = -yVelocity; // más alto que ancho ⇒ colisión vertical
                         } else {

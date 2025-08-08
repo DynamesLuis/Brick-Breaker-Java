@@ -8,8 +8,8 @@ public class GameWindow extends JFrame {
     GameWindow() {
         JPanel mainPanel = new JPanel(new CardLayout());
         CardLayout cardLayout = (CardLayout) mainPanel.getLayout();
-        GamePanel gamePanel = new GamePanel();
         HeaderPanel headerPanel = new HeaderPanel(widthWindow, 30);
+        GamePanel gamePanel = new GamePanel();
         JPanel mainGamePanel = new JPanel();
 
         //first view
@@ -19,8 +19,8 @@ public class GameWindow extends JFrame {
         this.add(startPanel);
         //second view
         mainGamePanel.setLayout(new BorderLayout());
-        mainGamePanel.add(headerPanel);
-        mainGamePanel.add(gamePanel);
+        mainGamePanel.add(headerPanel, BorderLayout.NORTH);
+        mainGamePanel.add(gamePanel, BorderLayout.CENTER);
         mainGamePanel.setVisible(false);
 
         mainPanel.add(startPanel, "welcome");
