@@ -50,7 +50,13 @@ public class Ball {
 
         //checks if ball touched paddle
         if(getBounds().intersects(Paddle.getBounds())) {
-            yVelocity = -yVelocity;
+            Rectangle intersection = getBounds().intersection(Paddle.getBounds());
+            if (intersection.width >= intersection.height) {
+                yVelocity = -yVelocity; //vertical collision
+            } else {
+                xVelocity = -xVelocity; // lateral collision
+            }
+
         }
 
         //check if ball touched a brick
@@ -64,9 +70,9 @@ public class Ball {
                         Rectangle intersection = getBounds().intersection(brickBounds);
                         HeaderPanel.updateScore();
                         if (intersection.width >= intersection.height) {
-                            yVelocity = -yVelocity; // más alto que ancho ⇒ colisión vertical
+                            yVelocity = -yVelocity; // vertical collision
                         } else {
-                            xVelocity = -xVelocity; // más ancho que alto ⇒ colisión lateral
+                            xVelocity = -xVelocity; // lateral collision
                         }
                     }
                 }
