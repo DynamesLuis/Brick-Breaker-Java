@@ -27,7 +27,7 @@ The game ends if the ball falls off the screen. Scoring depends on the number of
 3. Compile and run the project:
   javac Main.java
   java Main
-4. 3. Click the “Start Game” button in the window that opens.
+4. Click the “Start Game” button in the window that opens.
 
 ---
 
